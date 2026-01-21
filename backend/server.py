@@ -599,7 +599,7 @@ async def get_all_executives(user: dict = Depends(get_current_user)):
 @admin_router.put("/executives/{executive_id}/status", response_model=dict)
 async def update_executive_status(
     executive_id: str,
-    status: Literal["approved", "rejected"],
+    status: Literal["approved", "rejected"] = Query(...),
     user: dict = Depends(get_current_user)
 ):
     if user["role"] != "admin":
