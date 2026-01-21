@@ -1,0 +1,179 @@
+{
+  "brand_identity": {
+    "name": "Suite Summit",
+    "tagline": "The Peak of Executive Matching",
+    "tone": "Calm, Intelligent, Trustworthy, Premium, Effortless",
+    "visual_theme": "Abstract Snowy Summit",
+    "core_values": [
+      "Precision",
+      "Exclusivity",
+      "Clarity"
+    ]
+  },
+  "design_system": {
+    "colors": {
+      "primary": {
+        "name": "Summit Charcoal",
+        "hex": "#0f172a",
+        "tailwind": "slate-900",
+        "usage": "Headings, Primary Buttons, Footer Background"
+      },
+      "secondary": {
+        "name": "Glacier White",
+        "hex": "#ffffff",
+        "tailwind": "white",
+        "usage": "Card Backgrounds, Main Content Area"
+      },
+      "accent": {
+        "name": "Ice Blue",
+        "hex": "#38bdf8",
+        "tailwind": "sky-400",
+        "usage": "Primary CTAs, Active States, Highlights, Summit Line Gradient"
+      },
+      "neutral": {
+        "name": "Slate Mist",
+        "hex": "#f8fafc",
+        "tailwind": "slate-50",
+        "usage": "Page Backgrounds (Light Mode)"
+      },
+      "text": {
+        "primary": "#0f172a",
+        "secondary": "#475569",
+        "tertiary": "#94a3b8"
+      },
+      "gradients": {
+        "summit_fade": "linear-gradient(180deg, rgba(255,255,255,0) 0%, #f8fafc 100%)",
+        "ice_glow": "linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%)"
+      }
+    },
+    "typography": {
+      "headings": {
+        "family": "Manrope, sans-serif",
+        "weights": [
+          600,
+          700,
+          800
+        ],
+        "tracking": "-0.02em",
+        "usage": "All H1-H6 elements. DISTINCT from body text."
+      },
+      "body": {
+        "family": "Inter, sans-serif",
+        "weights": [
+          400,
+          500
+        ],
+        "usage": "Paragraphs, Inputs, Labels, Data Tables"
+      },
+      "mono": {
+        "family": "JetBrains Mono, monospace",
+        "usage": "Financial Data, API Keys, IDs"
+      }
+    },
+    "spacing": {
+      "base_scale": "4px",
+      "container_padding": "p-6 md:p-12 lg:p-24",
+      "section_gap": "gap-16 md:gap-32",
+      "component_gap": "gap-4 md:gap-8"
+    },
+    "borders": {
+      "radius": {
+        "sm": "2px",
+        "md": "4px",
+        "lg": "8px",
+        "xl": "12px",
+        "full": "9999px"
+      },
+      "width": "1px",
+      "color": "border-slate-200"
+    },
+    "shadows": {
+      "card": "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+      "hover": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+      "glow": "0 0 20px -5px rgba(56, 189, 248, 0.3)"
+    }
+  },
+  "layout_strategies": {
+    "marketing_grid": {
+      "name": "The Tetris Grid",
+      "description": "Asymmetric grid for landing pages. Never equal columns.",
+      "classes": "grid grid-cols-1 md:grid-cols-12 gap-8",
+      "patterns": [
+        "Hero: col-span-12 md:col-span-8 + col-span-12 md:col-span-4",
+        "Feature: col-span-12 md:col-span-5 + col-span-12 md:col-span-7"
+      ]
+    },
+    "dashboard_grid": {
+      "name": "The Bento Grid",
+      "description": "Dense, data-heavy grid for app views.",
+      "classes": "grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4",
+      "patterns": [
+        "Main Chart: col-span-2 row-span-2",
+        "Stat Card: col-span-1",
+        "List Feed: col-span-1 row-span-2"
+      ]
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-slate-900 text-white hover:bg-slate-800 rounded-lg px-6 py-3 font-medium transition-all shadow-sm hover:shadow-md",
+      "secondary": "bg-white text-slate-900 border border-slate-200 hover:bg-slate-50 rounded-lg px-6 py-3 font-medium transition-all",
+      "ghost": "text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg px-4 py-2 transition-all"
+    },
+    "cards": {
+      "base": "bg-white border border-slate-100 rounded-xl shadow-card p-6 hover:border-slate-200 transition-colors",
+      "interactive": "cursor-pointer hover:shadow-hover hover:-translate-y-1 transition-all duration-300"
+    },
+    "inputs": {
+      "base": "bg-white border border-slate-200 rounded-lg px-4 py-2 focus:ring-2 focus:ring-slate-900 focus:border-transparent outline-none transition-all placeholder:text-slate-400"
+    }
+  },
+  "assets": {
+    "hero_backgrounds": [
+      {
+        "url": "https://images.unsplash.com/photo-1654783912259-659d94fff000?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGdlb21ldHJpYyUyMHdoaXRlJTIwYmx1ZSUyMG1vdW50YWluJTIwM2QlMjByZW5kZXJ8ZW58MHx8fHwxNzY4OTU0ODU0fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Abstract Blue Wavy Sculpture - Use for Hero Section Background or 'Summit View' AI Page"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1673702540498-d655e4153cc2?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODh8MHwxfHNlYXJjaHwxfHxzbm93eSUyMG1vdW50YWluJTIwcGVhayUyMG1pbmltYWwlMjBibGFjayUyMGFuZCUyMHdoaXRlfGVufDB8fHx8MTc2ODk1NDk0OXww&ixlib=rb-4.1.0&q=85",
+        "description": "Minimal Black & White Mountain Peak - Use for 'About Us' or 'Mission' section background (low opacity)"
+      }
+    ],
+    "executives": [
+      {
+        "url": "https://images.unsplash.com/photo-1767175620484-1ed37931a0d1?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwxfHxjb25maWRlbnQlMjBidXNpbmVzcyUyMG1hbiUyMHBvcnRyYWl0JTIwZ3JleSUyMGJhY2tncm91bmR8ZW58MHx8fHwxNzY4OTU0OTQ0fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Confident Male Executive - Use for 'Matched Executive' Card 1"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1704627363842-a169b9743309?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHwxfHxjb25maWRlbnQlMjBidXNpbmVzcyUyMGdvbWFuJTIwcG9ydHJhaXQlMjBncmV5JTIwYmFja2dyb3VuZHxlbnwwfHx8fDE3Njg5NTQ5NDd8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Confident Female Executive - Use for 'Matched Executive' Card 2"
+      }
+    ],
+    "abstract_accents": [
+      {
+        "url": "https://images.unsplash.com/photo-1760143769741-9a215acf44cf?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGJsdWUlMjBnbGFzcyUyMGdlb21ldHJpYyUyMHNoYXBlc3xlbnwwfHx8fDE3Njg5NTQ4NTd8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Deep Blue Geometric Circles - Use for 'AI Insights' Feature Card Background"
+      }
+    ]
+  },
+  "universal_guidelines": [
+    "DO NOT use generic 'Inter' for headings. Use 'Manrope'.",
+    "DO NOT use full-screen gradients. Use white/slate backgrounds with subtle accent touches.",
+    "DO NOT center text by default. Left-align for readability.",
+    "Use 2x more padding than you think is necessary. 'p-8' is the new 'p-4'.",
+    "All interactive elements must have a hover state that changes color or lifts the element.",
+    "Use 'sonner' for all toast notifications.",
+    "Use 'lucide-react' for icons.",
+    "Ensure all interactive elements have 'data-testid' attributes."
+  ],
+  "implementation_steps": [
+    "1. Setup Tailwind config with new colors and fonts.",
+    "2. Create reusable UI components (Button, Card, Input) in /components/ui.",
+    "3. Build the Landing Page using the 'Tetris Grid'.",
+    "4. Build the Auth Pages (Login/Register).",
+    "5. Build the Company Intake Wizard.",
+    "6. Build the Dashboard Layout (Sidebar + Header).",
+    "7. Build the 'Summit View' AI Page.",
+    "8. Build the Executive Matching Cards."
+  ]
+}
