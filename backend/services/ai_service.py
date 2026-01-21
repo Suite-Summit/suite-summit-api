@@ -143,4 +143,9 @@ Format your response as JSON with these exact keys:
         
         await db.ai_insights.insert_one({**fallback_insight, "raw_response": str(e)})
         
-        return fallback_insight
+        # Remove _id if present
+        fallback_copy = fallback_insight.copy()
+        if "_id" in fallback_copy:
+            del fallback_copy["_id"]
+        
+        return fallback_copy
