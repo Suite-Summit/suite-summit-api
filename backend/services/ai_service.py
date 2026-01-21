@@ -115,10 +115,14 @@ Format your response as JSON with these exact keys:
         
         await db.ai_insights.insert_one(insight)
         
-        # Remove raw_response from returned data
-        del insight["raw_response"]
+        # Remove raw_response and _id from returned data
+        insight_copy = insight.copy()
+        if "raw_response" in insight_copy:
+            del insight_copy["raw_response"]
+        if "_id" in insight_copy:
+            del insight_copy["_id"]
         
-        return insight
+        return insight_copy
         
     except Exception as e:
         # Fallback response on error
