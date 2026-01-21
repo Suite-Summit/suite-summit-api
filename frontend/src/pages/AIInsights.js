@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { generateAIInsights, getCompanyProfile } from '../services/api';
@@ -14,11 +14,7 @@ const AIInsights = () => {
   const [insight, setInsight] = useState(null);
   const [company, setCompany] = useState(null);
 
-  useEffect(() => {
-    loadData();
-  }, []);
-
-  const loadData = async () => {
+  const loadData = useCallback(async () => {
     try {
       const [companyData, insightData] = await Promise.all([
         getCompanyProfile(),
