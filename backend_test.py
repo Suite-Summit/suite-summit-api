@@ -198,8 +198,8 @@ class SuiteSummitAPITester:
             self.log_test("Admin Approve Executive", False, "Missing admin token or executive ID")
             return
 
-        success, data, status = self.make_request('PUT', f'admin/executives/{self.executive_id}/status?status=approved', 
-                                                None, self.admin_token)
+        success, data, status = self.make_request('PUT', f'admin/executives/{self.executive_id}/status', 
+                                                None, self.admin_token, params={"status": "approved"})
         self.log_test("Admin Approve Executive", success and data.get('message'))
 
     def test_company_view_matches(self):
