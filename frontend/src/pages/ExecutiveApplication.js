@@ -82,7 +82,14 @@ const ExecutiveApplication = () => {
       toast.success('Application submitted! Pending admin approval.');
       navigate('/executive/dashboard');
     } catch (err) {
-      setError(err.response?.data?.detail || 'Application failed');
+      const errorMessage = err.response?.data?.detail;
+      if (typeof errorMessage === 'string') {
+        setError(errorMessage);
+      } else if (Array.isArray(errorMessage)) {
+        setError(errorMessage.map(e => e.msg || e).join(', '));
+      } else {
+        setError('Application failed. Please check your inputs.');
+      }
     } finally {
       setLoading(false);
     }
