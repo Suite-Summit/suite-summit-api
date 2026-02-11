@@ -97,6 +97,7 @@ class CompanyProfile(BaseModel):
     desired_role: str = "Fractional CFO"
     budget_range: str
     desired_hours: str
+    open_to_remote: bool = True
     additional_info: Optional[str] = None
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     updated_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
@@ -109,6 +110,7 @@ class CompanyIntake(BaseModel):
     desired_role: str = "Fractional CFO"
     budget_range: str
     desired_hours: str
+    open_to_remote: bool = True
     additional_info: Optional[str] = None
 
 class ExecutiveProfile(BaseModel):
@@ -123,6 +125,8 @@ class ExecutiveProfile(BaseModel):
     case_example: str
     measurable_outcomes: List[str]
     availability: str
+    willing_to_travel: bool = False
+    open_to_remote: bool = True
     hourly_rate_range: Optional[str] = None
     reference_name: Optional[str] = None
     reference_email: Optional[EmailStr] = None
@@ -140,6 +144,8 @@ class ExecutiveApplication(BaseModel):
     case_example: str
     measurable_outcomes: List[str]
     availability: str
+    willing_to_travel: bool = False
+    open_to_remote: bool = True
     hourly_rate_range: Optional[str] = None
     reference_name: Optional[str] = None
     reference_email: Optional[EmailStr] = None
@@ -154,6 +160,8 @@ class ExecutiveCard(BaseModel):
     measurable_outcomes: List[str]
     engagement_size: str
     availability: str
+    willing_to_travel: bool = False
+    open_to_remote: bool = True
 
 class IntroRequest(BaseModel):
     model_config = ConfigDict(extra="ignore")
