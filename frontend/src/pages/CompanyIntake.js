@@ -207,6 +207,23 @@ const CompanyIntake = () => {
                 </SelectContent>
               </Select>
             </div>
+            <div className="space-y-3">
+              <Label className="text-slate-700">Open to Remote Work?</Label>
+              <RadioGroup 
+                value={formData.open_to_remote ? "yes" : "no"} 
+                onValueChange={(v) => updateField('open_to_remote', v === "yes")}
+                className="flex gap-4"
+              >
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="yes" id="remote-yes" data-testid="intake-remote-yes" />
+                  <Label htmlFor="remote-yes" className="cursor-pointer">Yes</Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="no" id="remote-no" data-testid="intake-remote-no" />
+                  <Label htmlFor="remote-no" className="cursor-pointer">No</Label>
+                </div>
+              </RadioGroup>
+            </div>
             <div className="space-y-2">
               <Label htmlFor="additional_info" className="text-slate-700">Additional Information (Optional)</Label>
               <Textarea
