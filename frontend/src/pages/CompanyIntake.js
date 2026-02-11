@@ -33,6 +33,7 @@ const CompanyIntake = () => {
     desired_role: 'Fractional CFO',
     budget_range: '',
     desired_hours: '',
+    open_to_remote: true,
     additional_info: ''
   });
 
