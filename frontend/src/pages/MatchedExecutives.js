@@ -174,6 +174,18 @@ const MatchedExecutives = () => {
                         </span>
                       </div>
                     </div>
+
+                    {/* Travel & Remote */}
+                    <div className="flex gap-3 text-xs">
+                      <span className={`flex items-center gap-1 px-2 py-1 rounded ${exec.willing_to_travel ? 'bg-green-100 text-green-700' : 'bg-slate-100 text-slate-500'}`}>
+                        <Plane className="w-3 h-3" />
+                        {exec.willing_to_travel ? 'Will Travel' : 'No Travel'}
+                      </span>
+                      <span className={`flex items-center gap-1 px-2 py-1 rounded ${exec.open_to_remote ? 'bg-green-100 text-green-700' : 'bg-slate-100 text-slate-500'}`}>
+                        <Wifi className="w-3 h-3" />
+                        {exec.open_to_remote ? 'Remote OK' : 'On-site Only'}
+                      </span>
+                    </div>
                   </div>
 
                   {/* Action */}
