@@ -281,6 +281,44 @@ const ExecutiveApplication = () => {
                 </Select>
               </div>
 
+              {/* Travel & Remote Work */}
+              <div className="grid grid-cols-2 gap-6">
+                <div className="space-y-3">
+                  <Label className="text-slate-700">Willing to Travel?</Label>
+                  <RadioGroup 
+                    value={formData.willing_to_travel ? "yes" : "no"} 
+                    onValueChange={(v) => updateField('willing_to_travel', v === "yes")}
+                    className="flex gap-4"
+                  >
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="yes" id="travel-yes" data-testid="exec-travel-yes" />
+                      <Label htmlFor="travel-yes" className="cursor-pointer">Yes</Label>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="no" id="travel-no" data-testid="exec-travel-no" />
+                      <Label htmlFor="travel-no" className="cursor-pointer">No</Label>
+                    </div>
+                  </RadioGroup>
+                </div>
+                <div className="space-y-3">
+                  <Label className="text-slate-700">Open to Remote?</Label>
+                  <RadioGroup 
+                    value={formData.open_to_remote ? "yes" : "no"} 
+                    onValueChange={(v) => updateField('open_to_remote', v === "yes")}
+                    className="flex gap-4"
+                  >
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="yes" id="remote-yes" data-testid="exec-remote-yes" />
+                      <Label htmlFor="remote-yes" className="cursor-pointer">Yes</Label>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="no" id="remote-no" data-testid="exec-remote-no" />
+                      <Label htmlFor="remote-no" className="cursor-pointer">No</Label>
+                    </div>
+                  </RadioGroup>
+                </div>
+              </div>
+
               {/* Reference (Optional) */}
               <div className="space-y-4 p-4 bg-slate-50 rounded-lg">
                 <p className="text-sm font-medium text-slate-700">Reference (Optional)</p>
