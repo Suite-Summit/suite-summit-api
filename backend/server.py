@@ -518,7 +518,9 @@ async def get_matched_executives(user: dict = Depends(get_current_user)):
                 industries=exec["industries"],
                 measurable_outcomes=exec["measurable_outcomes"],
                 engagement_size=exec["engagement_size"],
-                availability=exec["availability"]
+                availability=exec["availability"],
+                willing_to_travel=exec.get("willing_to_travel", False),
+                open_to_remote=exec.get("open_to_remote", True)
             ))
     
     return result
