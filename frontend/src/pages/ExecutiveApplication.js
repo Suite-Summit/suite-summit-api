@@ -26,6 +26,8 @@ const ExecutiveApplication = () => {
     case_example: '',
     measurable_outcomes: ['', '', ''],
     availability: '',
+    willing_to_travel: false,
+    open_to_remote: true,
     hourly_rate_range: '',
     reference_name: '',
     reference_email: '',
