@@ -272,6 +272,10 @@ const CompanyIntake = () => {
                   <p className="text-slate-500">Hours</p>
                   <p className="font-medium text-slate-900">{formData.desired_hours} hrs/mo</p>
                 </div>
+                <div>
+                  <p className="text-slate-500">Remote Work</p>
+                  <p className="font-medium text-slate-900">{formData.open_to_remote ? 'Yes' : 'No'}</p>
+                </div>
               </div>
               {formData.additional_info && (
                 <div>
