@@ -463,15 +463,30 @@ async def get_executive_intro_requests(user: dict = Depends(get_current_user)):
         {"_id": 0}
     ).to_list(100)
     
+    if not requests:
+        return requests
+    
+    # Batch fetch all company profiles and users
+    company_ids = list(set(req["company_id"] for req in requests))
+    user_ids = list(set(req["company_user_id"] for req in requests))
+    
+    company_profiles = await db.company_profiles.find(
+        {"id": {"$in": company_ids}},
+        {"_id": 0}
+    ).to_list(100)
+    company_users = await db.users.find(
+        {"id": {"$in": user_ids}},
+        {"_id": 0, "password_hash": 0}
+    ).to_list(100)
+    
+    # Create lookup dictionaries
+    company_profile_map = {cp["id"]: cp for cp in company_profiles}
+    company_user_map = {cu["id"]: cu for cu in company_users}
+    
+    # Map data to requests
     for req in requests:
-        company_profile = await db.company_profiles.find_one(
-            {"id": req["company_id"]},
-            {"_id": 0}
-        )
-        company_user = await db.users.find_one(
-            {"id": req["company_user_id"]},
-            {"_id": 0, "password_hash": 0}
-        )
+        company_profile = company_profile_map.get(req["company_id"])
+        company_user = company_user_map.get(req["company_user_id"])
         if company_profile:
             req["company_name"] = company_profile["company_name"]
             req["company_stage"] = company_profile["company_stage"]
