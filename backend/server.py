@@ -688,8 +688,21 @@ async def get_all_companies(user: dict = Depends(get_current_user)):
     
     companies = await db.company_profiles.find({}, {"_id": 0}).to_list(100)
     
+    if not companies:
+        return companies
+    
+    # Batch fetch all users
+    user_ids = list(set(company["user_id"] for company in companies))
+    company_users = await db.users.find(
+        {"id": {"$in": user_ids}},
+        {"_id": 0, "password_hash": 0}
+    ).to_list(100)
+    
+    # Create lookup dictionary
+    user_map = {u["id"]: u for u in company_users}
+    
     for company in companies:
-        company_user = await db.users.find_one({"id": company["user_id"]}, {"_id": 0, "password_hash": 0})
+        company_user = user_map.get(company["user_id"])
         if company_user:
             company["contact_name"] = company_user["name"]
             company["contact_email"] = company_user["email"]
