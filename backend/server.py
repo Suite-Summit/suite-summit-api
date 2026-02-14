@@ -536,9 +536,22 @@ async def get_matched_executives(user: dict = Depends(get_current_user)):
         {"_id": 0}
     ).to_list(50)
     
+    if not executives:
+        return []
+    
+    # Batch fetch all users
+    user_ids = list(set(exec["user_id"] for exec in executives))
+    exec_users = await db.users.find(
+        {"id": {"$in": user_ids}},
+        {"_id": 0, "password_hash": 0}
+    ).to_list(50)
+    
+    # Create lookup dictionary
+    user_map = {u["id"]: u for u in exec_users}
+    
     result = []
     for exec in executives:
-        exec_user = await db.users.find_one({"id": exec["user_id"]}, {"_id": 0, "password_hash": 0})
+        exec_user = user_map.get(exec["user_id"])
         if exec_user:
             result.append(ExecutiveCard(
                 id=exec["id"],
