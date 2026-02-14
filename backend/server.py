@@ -367,15 +367,30 @@ async def get_company_intro_requests(user: dict = Depends(get_current_user)):
         {"_id": 0}
     ).to_list(100)
     
+    if not requests:
+        return requests
+    
+    # Batch fetch all executive profiles and users
+    exec_ids = list(set(req["executive_id"] for req in requests))
+    user_ids = list(set(req["executive_user_id"] for req in requests))
+    
+    exec_profiles = await db.executive_profiles.find(
+        {"id": {"$in": exec_ids}},
+        {"_id": 0}
+    ).to_list(100)
+    exec_users = await db.users.find(
+        {"id": {"$in": user_ids}},
+        {"_id": 0, "password_hash": 0}
+    ).to_list(100)
+    
+    # Create lookup dictionaries
+    exec_profile_map = {ep["id"]: ep for ep in exec_profiles}
+    exec_user_map = {eu["id"]: eu for eu in exec_users}
+    
+    # Map data to requests
     for req in requests:
-        exec_profile = await db.executive_profiles.find_one(
-            {"id": req["executive_id"]},
-            {"_id": 0}
-        )
-        exec_user = await db.users.find_one(
-            {"id": req["executive_user_id"]},
-            {"_id": 0, "password_hash": 0}
-        )
+        exec_profile = exec_profile_map.get(req["executive_id"])
+        exec_user = exec_user_map.get(req["executive_user_id"])
         if exec_profile and exec_user:
             req["executive_name"] = exec_user["name"]
             req["executive_title"] = exec_profile["title"]
