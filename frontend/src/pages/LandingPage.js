@@ -43,7 +43,7 @@ const LandingPage = () => {
 
         <div className="relative max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-7 text-left">
+            <div className="lg:col-span-8 text-left">
               <h1 className="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl text-slate-900 leading-tight animate-fade-in">
                 Fractional C-suite leadership,{' '}
                 <span className="text-ice-blue">elevated.</span>
