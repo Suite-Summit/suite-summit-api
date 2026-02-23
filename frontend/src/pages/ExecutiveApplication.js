@@ -78,7 +78,10 @@ const ExecutiveApplication = () => {
       const applicationData = {
         ...formData,
         years_experience: parseInt(formData.years_experience),
-        measurable_outcomes: formData.measurable_outcomes.filter(o => o.trim() !== '')
+        measurable_outcomes: formData.measurable_outcomes.filter(o => o.trim() !== ''),
+        // Only include reference fields if they have values
+        reference_name: formData.reference_name?.trim() || null,
+        reference_email: formData.reference_email?.trim() || null
       };
       
       await applyAsExecutive(applicationData);
