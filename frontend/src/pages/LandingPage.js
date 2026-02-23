@@ -74,9 +74,9 @@ const LandingPage = () => {
                 </Link>
               </div>
             </div>
-            <div className="lg:col-span-5 animate-fade-in animate-delay-300">
-              <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-r from-sky-100 to-slate-100 rounded-2xl blur-xl opacity-50"></div>
+            <div className="lg:col-span-4 animate-fade-in animate-delay-300">
+              <div className="relative max-w-sm mx-auto lg:mx-0">
+                <div className="absolute -inset-3 bg-gradient-to-r from-sky-100 to-slate-100 rounded-2xl blur-xl opacity-50"></div>
                 <img 
                   src="https://images.unsplash.com/photo-1654783912259-659d94fff000?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGdlb21ldHJpYyUyMHdoaXRlJTIwYmx1ZSUyMG1vdW50YWluJTIwM2QlMjByZW5kZXJ8ZW58MHx8fHwxNzY4OTU0ODU0fDA&ixlib=rb-4.1.0&q=85"
                   alt="Abstract Summit"
