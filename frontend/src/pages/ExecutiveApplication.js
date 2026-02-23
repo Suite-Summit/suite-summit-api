@@ -341,7 +341,6 @@ const ExecutiveApplication = () => {
                     <Label htmlFor="reference_email" className="text-slate-600 text-sm">Email</Label>
                     <Input
                       id="reference_email"
-                      type="email"
                       placeholder="john@company.com"
                       value={formData.reference_email}
                       onChange={(e) => updateField('reference_email', e.target.value)}
