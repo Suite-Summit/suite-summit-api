@@ -3,7 +3,19 @@ import axios from 'axios';
 
 const AuthContext = createContext(null);
 
-const API_URL = `${process.env.REACT_APP_BACKEND_URL}/api`;
+// ✅ CRA only exposes env vars prefixed with REACT_APP_
+// ✅ Ensure it exists and normalize (remove trailing slash)
+const RAW_BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
+if (!RAW_BACKEND_URL) {
+  // This will show in console during runtime if env var wasn't baked in at build time
+  throw new Error(
+    'Missing REACT_APP_BACKEND_URL. Set it in Vercel Environment Variables and redeploy.'
+  );
+}
+
+const BACKEND_URL = RAW_BACKEND_URL.replace(/\/+$/, ''); // remove trailing slash(es)
+const API_URL = `${BACKEND_URL}/api`;
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
